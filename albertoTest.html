@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript" src="scripts/jquery-2.2.4.min.js"></script>		
+    <script type="text/javascript" src="signalR/jquery.signalR-2.2.2.min.js"></script>
+    <script type="text/javascript" src="signalR/hubs.js"></script>
+    <!-- <script type="text/javascript" src="signalR/AuditToolHub.js"></script> -->
+
+</head>
+<body>
+    <script>
+        var attemptReconnect = function () {
+            clearTimeout(reconnectTimeout);
+            reconnectTimeout = setTimeout(startHubConnection, reconnectTime);
+        };
+
+        $.connection.hub.url = "https://dailytest.lime-energy.com/signalr";
+        $.connection.hub.start().done(function () {
+            signalrConnectionId = $.connection.hub.id;
+            console.log("Connection done");
+        }).fail(function (reason) {
+            console.log("Fail");
+            attemptReconnect();
+        });
+
+        console.log("Finished");
+    </script>
+</body>
+</html>

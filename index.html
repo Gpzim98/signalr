@@ -14,7 +14,7 @@
         var connection = $.connection("https://dailytest.lime-energy.com/signalr");
         console.log("debug");
 
-        connection.start({jsonp: false, transport: ['webSockets'] }).done(function() {
+        connection.start({jsonp: true, transport: ['longPolling'] }).done(function() {
             console.log("connection started!");
         });
 
