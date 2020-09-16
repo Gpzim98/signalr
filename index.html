@@ -11,7 +11,7 @@
 <body>
 
     <script>
-        var connection = $.connection("http://dailytest.lime-energy.com/signalr");
+        var connection = $.connection("https://dailytest.lime-energy.com/signalr");
         console.log("debug");
 
         connection.start({jsonp: false, transport: ['webSockets'] }).done(function() {
