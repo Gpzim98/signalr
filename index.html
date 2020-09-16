@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script> -->
+    <script src="scripts/jquery-1.6.4.js" type="text/javascript"></script>
+    <script src="scripts/jquery.signalR.min.js" type="text/javascript"></script>
+</head>
+<body>
+
+    <script>
+        var connection = $.connection("http://dailytest.lime-energy.com/signalr");
+        console.log("debug");
+
+        connection.start({jsonp: false, transport: ['webSockets'] }).done(function() {
+            console.log("connection started!");
+        });
+
+        // connection.start({ transport: 'longPolling' }, function() {
+        //     console.log('connection started!');
+        // });
+        //connection.send("Hello World");
+    </script>
+    
+</body>
+</html>
